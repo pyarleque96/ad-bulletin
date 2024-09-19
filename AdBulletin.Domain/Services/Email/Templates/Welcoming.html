@@ -1,0 +1,520 @@
+﻿<html lang="en">
+
+<head>
+    <title>Welcome to WISBulletin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        body {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        @media screen and (max-width: 580px) {
+            ul {
+                padding-left: 8px !important;
+            }
+
+            ol {
+                padding-left: 8px !important;
+            }
+
+            .mobile-padding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .content-mobile-padding {
+                padding-left: 40px !important;
+                padding-right: 40px !important;
+            }
+
+            .mobile-hero-padding {
+                padding-left: 40px !important;
+                padding-right: 40px !important;
+            }
+
+            .email-title {
+                font-size: 33px !important;
+                line-height: 42px !important;
+            }
+
+            p {
+                font-size: 22px !important;
+                line-height: 39px !important;
+            }
+
+            li {
+                font-size: 22px !important;
+                line-height: 39px !important;
+            }
+
+            .link {
+                font-size: 22px !important;
+                line-height: 39px !important;
+            }
+
+            .td-content {
+                font-size: 22px !important;
+                line-height: 39px !important;
+            }
+
+            .mobile-center {
+                text-align: center !important;
+            }
+
+            .mobile-18px {
+                font-size: 18px !important;
+                line-height: 34px !important;
+            }
+
+                .mobile-18px .link {
+                    font-size: 18px !important;
+                    line-height: 34px !important;
+                }
+
+            .mobile-26px {
+                font-size: 26px !important;
+                line-height: 39px !important;
+            }
+
+                .mobile-26px .link {
+                    font-size: 26px !important;
+                    line-height: 39px !important;
+                }
+
+            .mobile-28px {
+                font-size: 28px !important;
+                line-height: 41px !important;
+            }
+
+                .mobile-28px .link {
+                    font-size: 28px !important;
+                    line-height: 41px !important;
+                }
+
+            .mobile-36px {
+                font-size: 36px !important;
+                line-height: 49px !important;
+            }
+
+                .mobile-36px .link {
+                    font-size: 36px !important;
+                    line-height: 49px !important;
+                }
+
+            .top-color-bar-txt {
+                font-size: 22px !important;
+                line-height: 30px !important;
+                padding: 15px 40px !important;
+            }
+
+            .button a {
+                max-width: 100% !important;
+                width: 100% !important;
+                font-size: 28px !important;
+                line-height: 49px !important;
+            }
+
+            .h3-text {
+                font-size: 15px !important;
+                line-height: 26px !important;
+            }
+
+            .address-content {
+                font-size: 15px !important;
+                line-height: 26px !important;
+            }
+
+                .address-content span {
+                    font-size: 15px !important;
+                    line-height: 26px !important;
+                }
+
+            .sent-by-content {
+                font-size: 15px !important;
+                line-height: 26px !important;
+            }
+
+                .sent-by-content span {
+                    font-size: 15px !important;
+                    line-height: 26px !important;
+                }
+
+            .small-print {
+                font-size: 15px !important;
+                line-height: 26px !important;
+            }
+
+            .unsubscribe-content {
+                font-size: 14px !important;
+                line-height: 24px !important;
+            }
+
+                .unsubscribe-content a {
+                    font-size: 14px !important;
+                    line-height: 24px !important;
+                }
+
+            .icon-list-text-td {
+                padding-top: 0px !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            .mobile-only-inline-block {
+                display: inline-block !important;
+            }
+
+            .mobile-only-block {
+                display: block !important;
+            }
+
+            .mobile-width-100 {
+                display: block;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; height: 100% !important; width: 100% !important; margin: 0; padding: 0;" bgcolor="#f9f8f2">
+    <div style="display:none !important; max-height:0px; max-width:0px; overflow:hidden; opacity:0; color:transparent; visibility:hidden; mso-hide:all;">
+        ¡Hi! {UserName}, You have just received important information about your account and registration. Click here for more details.
+    </div>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important;">
+        <tr>
+            <td class="mobile-padding" align="center" valign="top" width="100%" bgcolor="#f9f8f2" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 40px 0;">
+                <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 580px; min-width: 580px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; margin: 0 auto;">
+                    <tr>
+                        <td align="center" valign="top" bgcolor="#ffffff" style="font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; border-radius: 25px; padding-top: 0; box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+
+
+                            <!-- email_header -->
+                            <!-- email_header -->
+                            <table role="presentation" data-role="email-header" style="border-collapse: collapse !important; border-spacing: 0; text-align: center; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;">
+                                <tbody>
+                                    <tr>
+                                        <td class="td-content" align="center" valign="top" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0;">
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 25px 25px 0 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   bgcolor="#212121">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="40px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 40px; font-weight: normal; hyphens: auto; line-height: 40px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!-- header_logo -->
+                                            <table role="presentation" data-role="header" style="position: relative; top: -1px; border-collapse: collapse !important; border-spacing: 0; text-align: center; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   bgcolor="#212121">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="content-mobile-padding" align="center" valign="top" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0 40px;">
+                                                            <a href="{BaseUrlApp}"
+                                                               target="_blank" align="center" style="font-weight: normal; line-height: 1; text-align: left; text-decoration: none; text-underline: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; margin: 0; padding: 0;">
+                                                                <img src="https://i.ibb.co/Xkj8V3H/WIS-BULLETIN-WHITE-2-nobg.png" width="150" height="74" class="header__logo" border="0" style="-ms-interpolation-mode: bicubic; height: auto; line-height: 100%; outline: none; text-decoration: none; border-width: 0;">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: -4px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   bgcolor="#212121">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="40px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 40px; font-weight: normal; hyphens: auto; line-height: 40px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <!-- welcome email_content -->
+                            <!-- DIP WELCOME EMAIL CONTENT -->
+
+                            <table role="presentation" data-role="content" style="border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;">
+                                <tbody>
+                                    <tr>
+                                        <td class="content-mobile-padding td-content" align="left" valign="top" style="color: #001D2F; font-size: 16px; font-weight: 400; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; letter-spacing: 0px; line-height: 28px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0 40px;">
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="40px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 40px; font-weight: normal; hyphens: auto; line-height: 40px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                            ¡Hi! {UserName},
+
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="20px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 20px; font-weight: normal; hyphens: auto; line-height: 20px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                            Thanks for signing up! You can now find the largest amount and variety of products, services, deals and more.
+
+                                            <br>
+                                            <br>
+
+                                            To maximize your experience, please verify your email to enable all features by clicking the button below.
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="20px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 20px; font-weight: normal; hyphens: auto; line-height: 20px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="20px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 20px; font-weight: normal; hyphens: auto; line-height: 20px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!-- primary CTA button -->
+                                            <table role="presentation" data-role="primary-button" class="button" style="border-collapse: collapse !important; border-spacing: 0; text-align: center; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="button" align="center" valign="top" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <a href="{URLCallback}" target="_blank"
+                                                               style="box-sizing: border-box; border-radius: 265px; color: #ffffff; display: inline-block; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; font-size: 20px; font-weight: 600; text-align: center; text-decoration: none; text-underline: none; -webkit-text-size-adjust: none; mso-hide: all; background-color: #212121; -ms-text-size-adjust: 100%; padding: 14px 40px; border: 2px solid #212121;">
+                                                                Verify email
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="25px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 25px; font-weight: normal; hyphens: auto; line-height: 25px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="15px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 15px; font-weight: normal; hyphens: auto; line-height: 15px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <table role="presentation" data-role="onboarding-journey-support-message--full-width" style="color: #001D2F; border-collapse: collapse !important; border-spacing: 0; text-align: center; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;">
+                                <tbody>
+                                    <tr>
+                                        <td class="content-mobile-padding td-content" align="center" valign="top" style="font-size: 16px; font-weight: 400; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; letter-spacing: 0px; line-height: 28px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 25px 40px 0;"
+                                            bgcolor="#f65894">
+
+                                            <p class="mobile-24px" style="font-size: 24px; line-height: 32px; font-weight: bold; margin-bottom: 18px; margin-top: 16px;">
+                                                Need help and advice?
+                                            </p>
+
+                                            <p class="mobile-18px" style="font-size: 16px; line-height: 26px; margin-top: 16px; margin-bottom: 16px;">
+
+                                                Start a
+                                                <a class="link" style="color: #0f866c; text-decoration: none; border-bottom-width: 2px; border-bottom-color: #0f866c; border-bottom-style: solid; padding-bottom: 2px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;"
+                                                   href="/#">
+                                                    chat with our friendly Support Team
+                                                </a>
+                                                , available 24/7, or contact us via the
+                                                <a class="link" style="color: #0f866c; text-decoration: none; border-bottom-width: 2px; border-bottom-color: #0f866c; border-bottom-style: solid; padding-bottom: 2px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;"
+                                                   href="/#">
+                                                    Support
+                                                    Center
+                                                </a> to browse our
+                                                <strong>helpful guides</strong>.
+                                            </p>
+
+
+
+                                            <table role="presentation" class="spacer" style="position: relative; top: 0px; border-radius: 0; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;"
+                                                   background="none">
+                                                <tbody>
+                                                    <tr style="vertical-align: top; padding: 0;" align="left">
+                                                        <td align="center" valign="top" height="30px" style="-moz-hyphens: auto; -webkit-hyphens: auto; border-collapse: collapse !important; color: #001d2f; font-size: 30px; font-weight: normal; hyphens: auto; line-height: 30px; mso-line-height-rule: exactly; word-wrap: break-word; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0;">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <!-- footer -->
+                            <!-- unsubscribe -->
+                            <table role="presentation" data-role="unsubscribe" style="color: #001D2F; border-top-width: 1px; border-top-color: #CCD2D5; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: solid none none;">
+                                <tbody>
+                                    <tr>
+                                        <td class="content-mobile-padding" align="left" valign="top" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 40px;">
+                                            <table role="presentation" style="border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="unsubscribe-content" align="left" valign="top" height="9" style="color: #0f866c; font-size: 9px; font-weight: 700; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; letter-spacing: 1.2px; line-height: 9px; text-transform: uppercase; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <a class="link" style="color: #0f866c; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;" href="/#">
+                                                                Support
+                                                                Center
+                                                            </a>
+                                                        </td>
+                                                        <td class="unsubscribe-content" align="right" valign="top" height="9" style="color: #0f866c; font-size: 9px; font-weight: 700; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; letter-spacing: 1.2px; line-height: 9px; text-transform: uppercase; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <a class="link" style="color: #0f866c; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;" href="/#">
+                                                                Privacy
+                                                                Policy
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <!-- sent by ExpressVPN  -->
+                            <!-- sent-by -->
+                            <table role="presentation" data-role="sent-by" style="color: #001D2F; border-top-width: 1px; border-top-color: #CCD2D5; border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: solid none none;">
+                                <tbody>
+                                    <tr>
+                                        <td class="content-mobile-padding" align="left" valign="top" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 15px 40px;">
+                                            <table role="presentation" style="border-collapse: collapse !important; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; border-style: none;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="sent-by-content" align="left" valign="middle" height="24" width="20" style="width: 24px; line-height: 20px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <img src="https://i.ibb.co/3dBhG2n/WIS-BULLETIN-2-big.png" alt="WisBulletin" width="24" height="20" border="0" style="display: block; vertical-align: top; -ms-interpolation-mode: bicubic; height: auto; line-height: 100%; outline: none; text-decoration: none; border-width: 0;">
+                                                        </td>
+                                                        <td class="sent-by-content" align="left" valign="middle" height="20" width="10" style="width: 10px; line-height: 20px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            &nbsp;
+                                                        </td>
+                                                        <td class="sent-by-content" align="left" valign="middle" height="20" width="470" style="width: 470px; font-size: 10px; font-weight: 400; font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; letter-spacing: 0px; line-height: 20px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <span>Sent by {TitleApp} 2024 &#169;</span>
+                                                            <br>
+                                                            <span style="color: #A2ACB3; line-height: 12px; display: inline-block;">Services, Deals and more.</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <img src="https://link.clicks.expressvpn.com/wf/open?upn=u001.Iw6J276OFx6JKbvo-2FVWlwmV9rHpCHytwP1iUE7QWdM0Gcw5zuhGAYfcJ-2BOqRPeh3cfk6djy8S-2BnqM2qlug-2FrotgLcMcMC8OSnmOhiyC1hOuhSXxQhT7etTVBsI6h53wc1Pn3o7FIUUUsn7xlzZ8rBXuzvLdEyUstjzv8YVmYKVevzsK0pW7QhFSMrzGKAwptN6RWiq5MxZcwO9TqB2yTW5NXLy6txV2cdsNDKJpGV7yCB-2BALUx-2B19utSiiCSPFlrygUcLZQUPMZ-2FR9YZyezfQtQN8ioCYsbT-2FMFAnihPf5DIjKVswWuWoZbk-2B9aTE7o0GM7VipWUN-2FNfyatGjYfFWO5aS9pITdL4l6vdkbDiITE6KwywhRiojFLp5mqZL-2B4nHJdn9Ys9aQGhErCGQ8mI2-2BK7EeGnFqWjF1QnEUGGEh1-2F5-2F4tkv8-2B50jmkTy2ZlQQKgTl8wLeQNe7BY1B8IesZ4ac3luGQmqMWNjXKeYPQMGIn3RNr85l9pVecy-2FpBwAaUwYZ9Thpj2Y6hfylHCUyrktMDfqkhRcn69uMVli2LkL4lHr-2F1r-2F1ZYF4kZmdS-2BIPvLUDZKefUaTJLnoN72Jol1bLBpLi9vnDa6YyrYS-2FrUD5MxKJQZqHU9NChZ5HtmClBos7X7-2F6WZHLDbDxqmk40keVt-2BsFJAIAED1nBPqBeBfZr-2Bh4HMzOqpQJDISKL0BQZynNa4Mk9Ygb30AjzMOCkWoxtWXNKemhnEQ45HWF1bgZRWB9NBkSJIxD4ACmWyR58k-2FchS3rj-2BxEAvUsem9jkHFX9RZ3X3Yx-2FcLdU0UbGpM-3D"
+         alt="" width="1" height="1" border="0" style="height:1px !important;width:1px !important;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;" />
+</body>
+
+</html>

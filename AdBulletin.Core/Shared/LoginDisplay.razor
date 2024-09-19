@@ -1,0 +1,15 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <div class="tp-header-sign-box d-none d-sm-block">
+            <a href="Identity/Account/Manage">@context.User.Identity?.Name!</a>
+            <form method="post" action="Identity/Account/LogOut">
+                <button type="submit" class="nav-link btn btn-link">Log out</button>
+            </form>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="tp-header-sign-box d-none d-sm-block">
+            <a href="Identity/Account/Login"><i class="fa-light fa-user"></i>Sign In</a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>

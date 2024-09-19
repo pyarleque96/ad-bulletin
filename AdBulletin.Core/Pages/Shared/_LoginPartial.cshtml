@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AddBulletin.Domain.Data.Entities.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var currentUrl = Context.Request.Path.Value;
+}
+@if (!SignInManager.IsSignedIn(User))
+{
+    @if (currentUrl.Contains("/Account/Login"))
+    {
+        <div class="tp-header-sign-box d-none d-sm-block">
+            <a asp-area="Identity" asp-page="/Account/Register"><i class="fa-light fa-user"></i>Sign Up</a>
+        </div>
+    }
+    else if (currentUrl.Contains("/Account/Register"))
+    {
+        <div class="tp-header-sign-box d-none d-sm-block">
+            <a asp-area="Identity" asp-page="/Account/Login"><i class="fa-light fa-user"></i>Sign In</a>
+        </div>
+    }
+}
