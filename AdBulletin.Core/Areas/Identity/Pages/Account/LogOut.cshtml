@@ -2,14 +2,28 @@
 @using Microsoft.AspNetCore.Identity
 @attribute [IgnoreAntiforgeryToken]
 @inject SignInManager<ApplicationUser> SignInManager
+
 @functions {
     public async Task<IActionResult> OnPost()
     {
         if (SignInManager.IsSignedIn(User))
         {
+            RemoveClientCookies();
             await SignInManager.SignOutAsync();
         }
 
         return Redirect("~/");
+    }
+
+    private void RemoveClientCookies()
+    {
+        foreach (var cookie in Request.Cookies)
+        {
+            if (cookie.Key.StartsWith(Constants.System.Tokens.USER_SESSION))
+            {
+                // Delete cookie
+                Response.Cookies.Delete(cookie.Key);
+            }
+        }
     }
 }

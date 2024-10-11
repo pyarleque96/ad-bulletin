@@ -24,4 +24,24 @@ function initializePageScripts() {
 		$(this).append(img);
 
 	});
+
+
+	////////////////////////////////////////////////////
+	// 08. Nice Select Js
+	$('select').niceSelect();
+
+
+	////////////////////////////////////////////////////
+	// 09. Sidebar Js
+	$(".tp-menu-bar").on("click", function () {
+		$(".tpoffcanvas").addClass("opened");
+		$(".body-overlay").addClass("apply");
+	});
+}
+
+function hideLoading() {
+	////////////////////////////////////////////////////
+	// 01. PreLoader Js
+	$("#loading").fadeOut(500);
+	$('body').css('overflow-y', 'scroll');
 }

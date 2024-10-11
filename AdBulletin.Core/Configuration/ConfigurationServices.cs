@@ -1,12 +1,15 @@
-﻿using AdBulletin.Core.Data;
+﻿using AdBulletin.Core.Handlers;
+using AdBulletin.Core.Services;
+using AdBulletin.Core.Services.Clients;
+using AdBulletin.Domain.Data.Context;
+using AdBulletin.Domain.Data.Entities;
 using AdBulletin.Domain.Services.Email;
-using AddBulletin.Domain.Data.Entities.Identity;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.EntityFrameworkCore;
-using AdBulletin.Domain.Services.Email.Provider.Gmail;
 using AdBulletin.Domain.Services.Email.Provider;
+using AdBulletin.Domain.Services.Email.Provider.Gmail;
 using AdBulletin.Infrastructure.CrossCutting.AppSettings;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Refit;
 
 namespace AdBulletin.Core.Configuration
 {
@@ -37,13 +40,18 @@ namespace AdBulletin.Core.Configuration
 
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-            //services.RegisterManagers();
-            //services.RegisterRepositories();
+            services.RegisterCoreServices();
+            services.RegisterExternalServices();
 
-            services.AddTransient<IEmailService, EmailService>();
-            services.AddTransient<IEmailSender, GmailSender>();
+            return services;
+        }
 
-            //services.AddSignalR();
+        public static IServiceCollection RegisterRefitClient(this IServiceCollection services, IConfiguration configuration)
+        {
+            var apiURL = configuration.GetValue<string>("Hosts:WebAPI:Uri");
+
+            services.AddRefitClient<IAdCategoryClientAPI>().ConfigureHttpClient(c => { c.Timeout = TimeSpan.FromSeconds(400); c.BaseAddress = new Uri(apiURL); }).AddHttpMessageHandler<JwtAuthHandler>();
+            services.AddRefitClient<IAdClientAPI>().ConfigureHttpClient(c => { c.Timeout = TimeSpan.FromSeconds(400); c.BaseAddress = new Uri(apiURL); }).AddHttpMessageHandler<JwtAuthHandler>();
 
             return services;
         }
@@ -51,6 +59,34 @@ namespace AdBulletin.Core.Configuration
         public static IServiceCollection AddConfigurationSection(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<ExternalServicesSetting>(configuration.GetSection("ExternalServices"));
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterCoreServices(this IServiceCollection services)
+        {
+            // API services
+            services.AddScoped<AdCategoryService>();
+            services.AddScoped<AdService>();
+
+            // Auth services
+            services.AddTransient<IAuthService, AuthService>();
+            services.AddScoped<SignInManager<ApplicationUser>, CustomSignInManager>();
+
+            // Handler services
+            services.AddTransient<JwtAuthHandler>();
+
+            // Razor components services
+            services.AddScoped<LoadingService>();
+            services.AddScoped<LayoutService>();
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterExternalServices(this IServiceCollection services)
+        {
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<IEmailSender, GmailSender>();
 
             return services;
         }

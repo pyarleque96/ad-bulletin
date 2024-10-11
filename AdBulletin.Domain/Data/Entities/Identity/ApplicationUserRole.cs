@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace AddBulletin.Domain.Data.Entities.Identity
+namespace AdBulletin.Domain.Data.Entities
 {
-    public class ApplicationUserRole : IdentityUserRole<int>
+    public class ApplicationUserRole : IdentityUserRole<long>
     {
         public ApplicationUserRole()
         {

@@ -30,13 +30,10 @@
 	var windowOn = $(window);
 	////////////////////////////////////////////////////
 	// 01. PreLoader Js
-	windowOn.on('load', function () {
-		$("#loading").fadeOut(500);
-	});
-
+	//look functions.js script
 
 	// 08. Nice Select Js
-	$('select').niceSelect();
+	//look functions.js script
 
 
 	///////////////////////////////////////////////////
@@ -53,10 +50,12 @@
 
 	////////////////////////////////////////////////////
 	// 09. Sidebar Js
+	//look functions.js script
 	$(".tp-menu-bar").on("click", function () {
 		$(".tpoffcanvas").addClass("opened");
 		$(".body-overlay").addClass("apply");
 	});
+	
 	$(".close-btn").on("click", function () {
 		$(".tpoffcanvas").removeClass("opened");
 		$(".body-overlay").removeClass("apply");

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@ViewData["Title"] - @Constants.System.App.Title</title>
+    <title>@ViewData["Title"]</title>
 
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="~/img/logo/favicon.png">
@@ -120,10 +120,10 @@
                 <div class="row align-items-center">
                     <div class="col-xl-3 col-lg-6 col-md-6 col-6">
                         <div class="tp-header-logo">
-                            <a href="~/"><img src="~/img/logo/WIS-BULLETIN.png" alt="" width="180" height="65"></a>
+                            <a href="~/"><img src="~/img/logo/WIS-BULLETIN-nobg.png" alt="" width="180" height="65"></a>
                         </div>
                     </div>
-                    <div class="col-xl-6 d-none d-xl-block">
+                    <div class="col-xl-5 d-none d-xl-block">
                         <div class="tp-header-menu">
                             <nav class="tp-main-menu-content">
                                 <ul>
@@ -137,7 +137,7 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-6">
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-6">
                         <div class="tp-header-right d-flex align-items-center justify-content-end">
                             @{
                                 var result = Engine.FindView(ViewContext, "_LoginPartial", isMainPage: false);
@@ -153,7 +153,7 @@
                                 $"we have looked at it in the following locations: {System.Environment.NewLine}{string.Join(System.Environment.NewLine, result.SearchedLocations)}.");
                             }
                             <div class="tp-header-btn d-none d-xl-block">
-                                <a class="tp-btn-theme" href="~/">
+                                <a class="tp-btn-theme" href="javascript:void(0);" onclick="location.href='/';">
                                     <span>
                                         Search Now <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
                                     </span>
@@ -184,13 +184,15 @@
     </main>
 
     <!-- copy-right area start -->
-    <footer class="tp-copyright-3-area black-bg">
-        <div class="container">
-            <div class="tp-copyright-3-height">
-                <div class="row align-items-center">
-                    <div class="col-xl-12 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                        <div class="tp-copyright-3-text text-center">
-                            <p>&copy; <a href="#">@Constants.System.App.Title</a> - @DateTime.Now.Year</p>
+    <footer>
+        <div class="tp-copyright-3-area black-bg">
+            <div class="container">
+                <div class="tp-copyright-3-height">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                            <div class="tp-copyright-3-text text-center">
+                                <p>&copy; <a href="#">@Constants.System.App.Title</a> - @DateTime.Now.Year</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -212,6 +214,20 @@
     <script src="~/js/imagesloaded-pkgd.js"></script>
     <script src="~/js/ajax-form.js"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>
+    <script src="~/Identity/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        var windowOn = $(window);
+        ////////////////////////////////////////////////////
+        // 01. PreLoader Js
+        windowOn.on('load', function () {
+            $("#loading").fadeOut(500);
+            $('body').css('overflow-y', 'scroll');
+        });
+
+        $('select').niceSelect();
+    </script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,0 +1,442 @@
+﻿@page "/category"
+@page "/category/{AdCategoryId:guid}"
+
+<PageTitle>Ads</PageTitle>
+
+<!-- breadcrumb area start -->
+<div class="breadcrumb__area black-bg breadcrumb__height breadcrumb__border">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__content text-center z-index">
+                    <div class="breadcrumb__list">
+                        <span><a onclick="@(() => NavigationManager.NavigateTo("/", true))" role="button">Home</a></span>
+                        <span class="dvdr"><i class="fa-solid fa-angle-right"></i></span>
+                        <span>Search Results</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area end -->
+<!-- listing area start -->
+<div class="tp-list-area pb-80">
+    <div class="container">
+        <div class="tp-list-top-wrap tp-list-top-border mb-100">
+            <div class="row align-items-center">
+                <div class="col-xl-4 col-lg-3">
+                    <div class="tp-list-top-left">
+                        <div class="tp-list-top-text">
+                            <span>Search from here</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-9">
+                    <div class="tp-list-top-right">
+                        <div class="tp-hero-input-wrap d-flex justify-content-between align-items-center">
+                            <div class="tp-header__category-wrap">
+                                <div class="tp-header__category" id="tp-header__category-toogle">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                Category
+                                                <span><i class="fa-regular fa-angle-down"></i></span>
+                                            </a>
+                                            <ul class="tp-header__category-submenu">
+                                                <li>
+                                                    <a href="#">Arabic</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Spanish</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Mandarin</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tp-hero-input-box p-relative">
+                                <input type="text" placeholder="Laptop">
+                                <div class="tp-hero-input-text">
+                                    <span>Find</span>
+                                </div>
+                            </div>
+                            <div class="tp-hero-input-box tp-hero-input-pl  p-relative">
+                                <input type="text" placeholder="New York">
+                                <div class="tp-hero-input-text">
+                                    <span>Where</span>
+                                </div>
+                            </div>
+                            <div class="tp-hero-button">
+                                <button class="tp-btn-black">
+                                    <span>
+                                        Search Now <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tp-list-wrap">
+            <div class="row">
+                <div class="col-xl-9 col-lg-8">
+                    <div class="tp-list-left">
+                        <ListAdsComponent AdCategoryId=AdCategoryId />
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4">
+                    <div class="tp-list-sidebar-wrap">
+                        <div class="tp-list-sidebar-widget mb-40">
+                            <div>
+                                <h4 class="tp-list-widget-title">Sort results by</h4>
+                                <div class="tp-list-select-form">
+                                    <div class="postbox__select">
+                                        <select>
+                                            <option>Date: Newest on top</option>
+                                            <option>01 Year</option>
+                                            <option>02 Year</option>
+                                            <option>03 Year</option>
+                                            <option>04 Year</option>
+                                            <option>05 Year</option>
+                                            <option>03 Year</option>
+                                            <option>04 Year</option>
+                                            <option>05 Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="tp-list-widget-title">Type of laptop</h4>
+                                <div class="tp-list-select-form">
+                                    <div class="postbox__select">
+                                        <select>
+                                            <option>All</option>
+                                            <option>01 Year</option>
+                                            <option>02 Year</option>
+                                            <option>03 Year</option>
+                                            <option>04 Year</option>
+                                            <option>05 Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-35">
+                                <h4 class="tp-list-widget-title">Filter ads by</h4>
+                                <div class="tp-list-filter-wrap">
+                                    <div class="tp-list-filter">
+                                        <span class="d-flex align-items-center justify-content-between">
+                                            <input id="Male" type="checkbox" name="filter">
+                                            <label for="Male">Urgent</label>
+                                            <i class="fal fa-angle-right"></i>
+                                        </span>
+                                    </div>
+                                    <div class="tp-list-filter">
+                                        <span class="d-flex align-items-center justify-content-between">
+                                            <input id="Female" type="checkbox" name="filter">
+                                            <label for="Female">Featured</label>
+                                            <i class="fal fa-angle-right"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="tp-list-widget-title">Filter by price</h4>
+                            <div class="tp-list-filter-wrap">
+                                <div class="form-set d-flex">
+                                    <input type="text" placeholder="Min">
+                                    <input type="text" placeholder="Max">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-list-sidebar-widget mb-40">
+                            <h4 class="tp-list-sidebar-widget-title">More Category</h4>
+                            <div class="tp-list-sidebar-category">
+                                <ul>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-1">
+                                                    <span>
+                                                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M12.6953 2.625C12.8828 2.625 13.0234 2.8125 12.9766 2.97656L12.8359 3.53906C12.8125 3.67969 12.6953 3.75 12.5781 3.75H12.0859C12.4141 4.03125 12.625 4.42969 12.625 4.875V6C12.625 6.39844 12.4609 6.72656 12.25 6.98438V8.25C12.25 8.67188 11.8984 9 11.5 9H10.75C10.3281 9 10 8.67188 10 8.25V7.5H4V8.25C4 8.67188 3.64844 9 3.25 9H2.5C2.07812 9 1.75 8.67188 1.75 8.25V6.98438C1.51562 6.72656 1.375 6.39844 1.375 6V4.875C1.375 4.42969 1.5625 4.03125 1.89062 3.75H1.42188C1.28125 3.75 1.16406 3.67969 1.14062 3.53906L1 2.97656C0.953125 2.8125 1.09375 2.625 1.28125 2.625H2.66406L3.0625 1.66406C3.46094 0.65625 4.42188 0 5.5 0H8.47656C9.55469 0 10.5156 0.65625 10.9141 1.66406L11.3125 2.625H12.6953ZM4.44531 2.22656L4 3.375H10L9.53125 2.22656C9.34375 1.78125 8.94531 1.5 8.47656 1.5H5.5C5.03125 1.5 4.63281 1.78125 4.44531 2.22656ZM3.25 6C3.69531 6 4.375 6.07031 4.375 5.625C4.375 5.17969 3.69531 4.5 3.25 4.5C2.78125 4.5 2.5 4.80469 2.5 5.25C2.5 5.71875 2.78125 6 3.25 6ZM10.75 6C11.1953 6 11.5 5.71875 11.5 5.25C11.5 4.80469 11.1953 4.5 10.75 4.5C10.2812 4.5 9.625 5.17969 9.625 5.625C9.625 6.07031 10.2812 6 10.75 6Z"
+                                                                  fill="currentcolor"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>car &amp; parts</span>
+                                            </div>
+                                        </a>
+                                        <span>23</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-2">
+                                                    <span>
+                                                        <svg width="17" height="13" viewBox="0 0 17 13" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M15.7891 2.77344C15.9766 2.86719 16.0469 3.10156 15.9531 3.26562L14.6172 5.96094C14.5234 6.14844 14.2891 6.21875 14.1016 6.125L12.7656 5.46875C12.5312 5.35156 12.2266 5.53906 12.2266 5.82031V11.75C12.2266 12.1719 11.8984 12.5 11.4766 12.5H5.47656C5.07812 12.5 4.72656 12.1719 4.72656 11.75V5.82031C4.72656 5.53906 4.44531 5.35156 4.1875 5.46875L2.875 6.125C2.6875 6.21875 2.45312 6.14844 2.35938 5.96094L1.02344 3.26562C0.929688 3.10156 1 2.86719 1.1875 2.77344L5.75781 0.5C6.22656 1.15625 7.28125 1.625 8.5 1.625C9.69531 1.625 10.75 1.15625 11.2188 0.5L15.7891 2.77344Z"
+                                                                  fill="currentcolor"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>clothing</span>
+                                            </div>
+                                        </a>
+                                        <span>10</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-3">
+                                                    <span>
+                                                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M12.625 0.5C13.2344 0.5 13.75 1.01562 13.75 1.625V9.125C13.75 9.75781 13.2344 10.25 12.625 10.25H8.125L8.5 11.375H10.1875C10.4922 11.375 10.75 11.6328 10.75 11.9375C10.75 12.2656 10.4922 12.5 10.1875 12.5H3.8125C3.48438 12.5 3.25 12.2656 3.25 11.9375C3.25 11.6328 3.48438 11.375 3.8125 11.375H5.5L5.875 10.25H1.375C0.742188 10.25 0.25 9.75781 0.25 9.125V1.625C0.25 1.01562 0.742188 0.5 1.375 0.5H12.625ZM12.25 8.75V2H1.75V8.75H12.25Z"
+                                                                  fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>electronics</span>
+                                            </div>
+                                        </a>
+                                        <span>33</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-4">
+                                                    <span>
+                                                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M13.6094 6.05469C13.6797 6.10156 13.7266 6.24219 13.75 6.33594C13.7266 6.40625 13.6797 6.52344 13.6328 6.57031L13.1406 7.13281C13.0703 7.20312 12.9531 7.25 12.8594 7.25C12.7891 7.25 12.6719 7.20312 12.6016 7.15625L12.25 6.82812V11.75C12.25 12.1719 11.8984 12.5 11.5 12.5H2.5C2.07812 12.5 1.75 12.1719 1.75 11.75V6.82812L1.375 7.15625C1.30469 7.20312 1.1875 7.25 1.11719 7.25C1.02344 7.25 0.90625 7.20312 0.835938 7.13281L0.34375 6.57031C0.273438 6.52344 0.226562 6.40625 0.226562 6.33594C0.226562 6.24219 0.296875 6.10156 0.367188 6.05469L6.36719 0.757812C6.50781 0.617188 6.78906 0.5 7 0.5C7.1875 0.5 7.46875 0.617188 7.60938 0.757812L10 2.84375V1.625C10 1.4375 10.1641 1.25 10.375 1.25H11.875C12.0625 1.25 12.25 1.4375 12.25 1.625V4.83594L13.6094 6.05469ZM8.5 7.50781V5.51562C8.47656 5.23438 8.26562 5.02344 7.98438 5H5.99219C5.71094 5.02344 5.5 5.23438 5.5 5.51562V7.50781C5.5 7.78906 5.71094 8 5.99219 8H7.98438C8.26562 8 8.47656 7.78906 8.5 7.50781Z"
+                                                                  fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>property</span>
+                                            </div>
+                                        </a>
+                                        <span>51</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-5">
+                                                    <span>
+                                                        <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M11.4609 1.92969C11.6016 2.49219 11.7891 3.35938 11.8125 4.36719L8.13281 0.6875C9.16406 0.710938 10.0312 0.898438 10.5938 1.03906C11.0156 1.15625 11.3438 1.50781 11.4609 1.92969ZM0.515625 11.0938C0.375 10.5312 0.1875 9.66406 0.1875 8.65625L3.84375 12.3125C2.83594 12.3125 1.94531 12.125 1.38281 11.9844C0.960938 11.8672 0.632812 11.5156 0.515625 11.0938ZM0.28125 7.15625C0.796875 3.57031 3.53906 1.25 6.63281 0.78125L11.6953 5.86719C11.1797 9.45312 8.4375 11.7734 5.34375 12.2188L0.28125 7.15625ZM7.71094 4.25L7.05469 4.92969L6.375 4.25C6.30469 4.17969 6.1875 4.17969 6.11719 4.25L5.85938 4.53125C5.78906 4.60156 5.78906 4.71875 5.85938 4.78906L6.51562 5.44531L6 5.98438L5.32031 5.32812C5.25 5.25781 5.13281 5.25781 5.0625 5.32812L4.80469 5.58594C4.73438 5.65625 4.73438 5.77344 4.80469 5.84375L5.46094 6.52344L4.92188 7.03906L4.26562 6.38281C4.19531 6.3125 4.07812 6.3125 4.00781 6.38281L3.72656 6.64062C3.65625 6.71094 3.65625 6.82812 3.72656 6.89844L4.40625 7.57812L3.72656 8.23438C3.65625 8.30469 3.65625 8.42188 3.72656 8.49219L4.00781 8.77344C4.07812 8.84375 4.19531 8.84375 4.26562 8.77344L4.92188 8.09375L5.60156 8.77344C5.67188 8.84375 5.78906 8.84375 5.85938 8.77344L6.11719 8.49219C6.1875 8.42188 6.1875 8.30469 6.11719 8.23438L5.46094 7.57812L6 7.03906L6.65625 7.69531C6.72656 7.76562 6.84375 7.76562 6.91406 7.69531L7.17188 7.4375C7.26562 7.36719 7.26562 7.25 7.17188 7.17969L6.51562 6.5L7.05469 5.98438L7.71094 6.64062C7.78125 6.71094 7.89844 6.71094 7.96875 6.64062L8.25 6.38281C8.32031 6.3125 8.32031 6.19531 8.25 6.10156L7.57031 5.44531L8.25 4.78906C8.32031 4.71875 8.32031 4.60156 8.25 4.53125L7.96875 4.25C7.89844 4.17969 7.78125 4.17969 7.71094 4.25Z"
+                                                                  fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>sports</span>
+                                            </div>
+                                        </a>
+                                        <span>19</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-6">
+                                                    <span>
+                                                        <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M6.625 0.5C7.23438 0.5 7.75 1.01562 7.75 1.625V11.375C7.75 12.0078 7.23438 12.5 6.625 12.5H1.375C0.742188 12.5 0.25 12.0078 0.25 11.375V1.625C0.25 1.01562 0.742188 0.5 1.375 0.5H6.625ZM4 11.75C4.39844 11.75 4.75 11.4219 4.75 11C4.75 10.6016 4.39844 10.25 4 10.25C3.57812 10.25 3.25 10.6016 3.25 11C3.25 11.4219 3.57812 11.75 4 11.75Z"
+                                                                  fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>mobiles</span>
+                                            </div>
+                                        </a>
+                                        <span>41</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-7">
+                                                    <span>
+                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M6.23438 4.75L9.75 6.01562V11.125C9.75 11.3359 9.5625 11.5 9.375 11.5H7.875C7.66406 11.5 7.5 11.3359 7.5 11.125V8.5H3.75V11.125C3.75 11.3359 3.5625 11.5 3.375 11.5H1.875C1.66406 11.5 1.5 11.3359 1.5 11.125V6.13281C0.609375 5.80469 0 4.98438 0 4C0 3.60156 0.328125 3.25 0.75 3.25C1.14844 3.25 1.5 3.60156 1.5 4C1.5 4.42188 1.82812 4.75 2.25 4.75H6.23438ZM12 2.125V2.875C12 3.71875 11.3203 4.375 10.5 4.375H9.75V5.21875L6.75 4.14062V0.625C6.75 0.296875 7.14844 0.132812 7.38281 0.367188L8.01562 1H9.28125C9.53906 1 9.82031 1.1875 9.9375 1.42188L10.125 1.75H11.625C11.8125 1.75 12 1.9375 12 2.125ZM9.375 2.125C9.375 1.9375 9.1875 1.75 9 1.75C8.78906 1.75 8.625 1.9375 8.625 2.125C8.625 2.33594 8.78906 2.5 9 2.5C9.1875 2.5 9.375 2.33594 9.375 2.125Z"
+                                                                  fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>pets</span>
+                                            </div>
+                                        </a>
+                                        <span>22</span>
+                                    </li>
+                                    <li>
+                                        <a href="listing-grid.html">
+                                            <div class="tp-listing-product-info d-flex align-items-center">
+                                                <div class="tp-listing-product-icon product-icon-color-8">
+                                                    <span>
+                                                        <svg width="12" height="11" viewBox="0 0 12 11" fill="none"
+                                                             xmlns="../../../www.w3.org/2000/svg.html">
+                                                            <path d="M7.5 7.375V6.25H12V9.625C12 10.2344 11.4609 10.75 10.875 10.75H1.125C0.515625 10.75 0 10.2344 0 9.625V6.25H4.5V7.375C4.5 7.58594 4.66406 7.75 4.875 7.75H7.125C7.3125 7.75 7.5 7.58594 7.5 7.375ZM10.875 2.5C11.4609 2.5 12 3.03906 12 3.625V5.5H0V3.625C0 3.03906 0.515625 2.5 1.125 2.5H3V1.375C3 0.789062 3.51562 0.25 4.125 0.25H7.875C8.46094 0.25 9 0.789062 9 1.375V2.5H10.875ZM7.5 2.5V1.75H4.5V2.5H7.5Z"
+                                                                  fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <span>business</span>
+                                            </div>
+                                        </a>
+                                        <span>30</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tp-list-sidebar-link">
+                                <a href="#">See More</a>
+                            </div>
+                        </div>
+                        <div class="tp-list-sidebar-widget mb-40">
+                            <h4 class="tp-list-widget-title pb-0 mb-10">Location by ads</h4>
+                            <div class="tp-list-filter-wrap location-box">
+                                <span>All of <b>USA <i class="fa-sharp fa-regular fa-angle-down"></i></b> </span>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="york" type="checkbox" name="location">
+                                        <label for="york">new york</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="washington" type="checkbox" name="location">
+                                        <label for="washington">washington</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="Chicago" type="checkbox" name="location">
+                                        <label for="Chicago">Chicago</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="Houston" type="checkbox" name="location">
+                                        <label for="Houston">Houston</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="Phoenix" type="checkbox" name="location">
+                                        <label for="Phoenix">Phoenix</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="arizona" type="checkbox" name="location">
+                                        <label for="arizona">arizona</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="florida" type="checkbox" name="location">
+                                        <label for="florida">florida</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="Antonio" type="checkbox" name="location">
+                                        <label for="Antonio">San Antonio</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                                <div class="tp-list-filter">
+                                    <span class="d-flex align-items-center justify-content-between">
+                                        <input id="Francisco" type="checkbox" name="location">
+                                        <label for="Francisco">San Francisco</label>
+                                        <i class="fal fa-angle-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tp-list-sidebar-link">
+                                <a href="#">See More</a>
+                            </div>
+                        </div>
+                        <div class="tp-list-details-tips-box mb-40">
+                            <span>
+                                <svg width="58" height="64" viewBox="0 0 58 64" fill="none"
+                                     xmlns="../../../www.w3.org/2000/svg.html">
+                                    <path opacity="0.5"
+                                          d="M2 27.251C2 17.657 2 12.86 3.134 11.246C4.265 9.635 8.774 8.09 17.795 5.003L19.514 4.415C24.215 2.804 26.564 2 29 2C31.433 2 33.785 2.804 38.486 4.415L40.205 5.003C49.226 8.09 53.735 9.635 54.866 11.246C56 12.86 56 17.66 56 27.251V31.973C56 48.887 43.283 57.098 35.303 60.581C33.14 61.526 32.06 62 29 62C25.94 62 24.86 61.526 22.697 60.581C14.717 57.095 2 48.89 2 31.973V27.251Z"
+                                          stroke="white" stroke-width="3" />
+                                    <path d="M2 29L29 20L56 29M29 2V60.5" stroke="white" stroke-width="3"
+                                          stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h6>Safety Tips</h6>
+                            <p>
+                                Meet seller at a safe location
+                                Check the item before you buy
+                                Pay only after collecting item
+                            </p>
+                        </div>
+                        <div class="tp-list-details-ads p-relative">
+                            <img src="/img/listing/details-1-5.jpg" alt="">
+                            <div class="tp-list-details-ads-text z-index">
+                                <span>Ads Banner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- listing area end -->
+@code {
+    [Parameter]
+    public Guid? AdCategoryId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadingService.OnChange += async () => await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadData();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        LoadingService.Show();
+
+        try
+        {
+            StateHasChanged();
+        }
+        finally
+        {
+            await LoadingService.HideLoadingWithJsAsync(JsRuntime);
+        }
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from the event to avoid memory leaks
+        LoadingService.OnChange -= async () => await InvokeAsync(StateHasChanged);
+    }
+}

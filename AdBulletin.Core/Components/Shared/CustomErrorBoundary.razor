@@ -1,0 +1,31 @@
+﻿@inherits ErrorBoundary
+@inject IHostEnvironment HostEnvironment
+@inject ILogger<CustomErrorBoundary> Logger
+
+@if (CurrentException is null)
+{
+    @ChildContent
+}
+else if (ErrorContent is not null)
+{
+    @ErrorContent(CurrentException)
+}
+else
+{
+    if (HostEnvironment.EnvironmentName == "Production")
+    {
+        NavigationManager.NavigateTo("/error", true);
+    }
+    else
+    {
+        @ChildContent
+    }
+}
+
+@code {
+    protected override async Task OnErrorAsync(Exception e)
+    {
+        await JsRuntime.InvokeVoidAsync("console.log", $"ListAdsComponent => LoadData() Exception: -- {e.Message} - {e.StackTrace}");
+        Logger.LogError($"CustomErrorBoundaryComponent => OnErrorAsync() -- {e.Message} - {e.StackTrace}");
+    }
+}

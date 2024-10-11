@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using AddBulletin.Domain.Data.Entities.Identity
+@using AdBulletin.Domain.Data.Entities
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -15,10 +15,19 @@
             <a asp-area="Identity" asp-page="/Account/Register"><i class="fa-light fa-user"></i>Sign Up</a>
         </div>
     }
-    else if (currentUrl.Contains("/Account/Register"))
+    else
     {
         <div class="tp-header-sign-box d-none d-sm-block">
             <a asp-area="Identity" asp-page="/Account/Login"><i class="fa-light fa-user"></i>Sign In</a>
         </div>
     }
+}
+else
+{
+    <div class="tp-header-sign-box d-none d-sm-block">
+        <a href="Identity/Account/Manage">@User.Identity?.Name!</a>
+        <form id="logout-form" class="form-inline" method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link">Logout</button>
+        </form>
+    </div>
 }

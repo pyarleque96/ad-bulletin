@@ -2,31 +2,33 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using AddBulletin.Domain.Data.Entities.Identity;
+using AdBulletin.Common.Constants;
+using AdBulletin.Core.Services;
+using AdBulletin.Domain.Data.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace AdBulletin.Core.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IAuthService _authService;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IConfiguration _configuration;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager,
+                          IConfiguration configuration,
+                          IAuthService authService,
+                          ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _configuration = configuration;
+            _authService = authService;
         }
 
         /// <summary>
@@ -112,9 +114,31 @@ namespace AdBulletin.Core.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
+                    try
+                    {
+                        var token = await _authService.GetJwtTokenFromApi(Input.Email, Input.Password);
+                        var cookieOptions = new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true, // Set to true for HTTPS
+                        };
+
+                        if (Input.RememberMe)
+                        {
+                            cookieOptions.Expires = DateTimeOffset.UtcNow.AddYears(1); // Set the expiration time (same expire time of the JWT token)
+                        }
+
+                        Response.Cookies.Append(Constants.System.Tokens.JWT_AUTH_TOKEN, token, cookieOptions);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogInformation($"LoginModel => OnPostAsync() -- {ex.Message} - {ex.StackTrace}");
+                        throw;
+                    }
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
@@ -126,6 +150,11 @@ namespace AdBulletin.Core.Areas.Identity.Pages.Account
                 {
                     _logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
+                }
+                if (result.IsNotAllowed)
+                {
+                    ModelState.AddModelError(string.Empty, "Your account has been deactivated or deleted.");
+                    return Page();
                 }
                 else
                 {

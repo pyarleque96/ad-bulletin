@@ -1,5 +1,6 @@
 using AdBulletin.Core.Areas.Identity;
 using AdBulletin.Core.Configuration;
+using AdBulletin.Domain.Data.Entities;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,16 +9,26 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 {
+    //Register all context
     builder.Services.RegisterContext(configuration);
+
+    //Register Entity Framework and Identity
     builder.Services.RegisterIdentity();
-    builder.Services.RegisterServices();
+
+    //Add Configuration Options from appsetting.json
     builder.Services.AddConfigurationSection(configuration);
+
+    //Register all services in the collection services
+    builder.Services.RegisterServices();
+
+    //Register Refit services client
+    builder.Services.RegisterRefitClient(configuration);
 
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
     builder.Services.AddRazorPages();
     builder.Services.AddServerSideBlazor();
 
-    builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+    builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<ApplicationUser>>();
 }
 
 var app = builder.Build();
@@ -29,7 +40,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Error");
+    app.UseExceptionHandler("/error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }

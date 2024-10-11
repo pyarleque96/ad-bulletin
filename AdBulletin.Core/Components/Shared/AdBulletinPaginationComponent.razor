@@ -1,0 +1,94 @@
+﻿<div class="basic-pagination text-center pagination-style-2 pt-35 user-select-none">
+    <nav>
+        <ul>
+            <!-- Previous page button, disabled if we are on the first page -->
+            <li>
+                <a @onclick="() => ChangePage(CurrentPage - 1)" role="button" class="@GetDisabledClass(CurrentPage == 1)">
+                    <i class="fa-regular fa-arrow-left"></i>
+                </a>
+            </li>
+
+            <!-- Always show the first page -->
+            @if (TotalPages > 0)
+            {
+                <li class="page-item @GetCurrentPageClass(1)">
+                    <a @onclick="() => ChangePage(1)" role="button">1</a>
+                </li>
+            }
+
+            <!-- Show '...' if there is a gap between the first page and the pages near the currentPage -->
+            @if (CurrentPage > 4)
+            {
+                <li>
+                    <span @onclick="() => ChangePage(GetMiddlePage(1, CurrentPage))" style="cursor: pointer;">...</span>
+                </li>
+            }
+
+            <!-- Pages around the current page -->
+            @for (int i = Math.Max(2, CurrentPage - 2); i <= Math.Min(TotalPages - 1, CurrentPage + 2); i++)
+            {
+                var pageNumber = i;
+                <li class="@GetCurrentPageClass(pageNumber)">
+                    <a class="@i" @onclick="() => ChangePage(pageNumber)" role="button">@pageNumber</a>
+                </li>
+            }
+
+            <!-- Show '...' if there is a gap between the pages near the currentPage and the last page -->
+            @if (CurrentPage < TotalPages - 3)
+            {
+                <li>
+                    <span @onclick="() => ChangePage(GetMiddlePage(CurrentPage, TotalPages))" style="cursor: pointer;">...</span>
+                </li>
+            }
+
+            <!-- Always show the last page -->
+            @if (TotalPages > 1)
+            {
+                <li class="@GetCurrentPageClass(TotalPages)">
+                    <a @onclick="() => ChangePage(TotalPages)" role="button">@TotalPages</a>
+                </li>
+            }
+
+            <!-- Next page button, disabled if we are on the last page -->
+            <li>
+                <a @onclick="() => ChangePage(CurrentPage + 1)" role="button" class="@GetDisabledClass(CurrentPage == TotalPages)">
+                    <i class="fa-regular fa-arrow-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+@code {
+    [Parameter] public int CurrentPage { get; set; } = 1;
+    [Parameter] public int TotalPages { get; set; } = 1;
+    [Parameter] public EventCallback<int> OnPageChanged { get; set; }
+
+    // Change page
+    private async Task ChangePage(int newPage)
+    {
+        if (newPage != CurrentPage && newPage > 0 && newPage <= TotalPages)
+        {
+            CurrentPage = newPage;
+            await OnPageChanged.InvokeAsync(newPage);
+        }
+    }
+
+    // Calculate the middle page based on the range
+    private int GetMiddlePage(int startPage, int endPage)
+    {
+        return (startPage + endPage) / 2; // Return the middle page
+    }
+
+    // Classes to mark the current page
+    private string GetCurrentPageClass(int page)
+    {
+        return page == CurrentPage ? "current" : string.Empty;
+    }
+
+    // Classes to disable navigation buttons when necessary
+    private string GetDisabledClass(bool condition)
+    {
+        return condition ? "disabled" : string.Empty;
+    }
+}

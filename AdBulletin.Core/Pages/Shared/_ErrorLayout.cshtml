@@ -1,0 +1,239 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewEngines
+@inject ICompositeViewEngine Engine
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/logo/favicon.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/css/theme/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/theme/animate.css" />
+    <link rel="stylesheet" href="~/css/theme/swiper-bundle.css" />
+    <link rel="stylesheet" href="~/css/theme/slick.css" />
+    <link rel="stylesheet" href="~/css/theme/magnific-popup.css" />
+    <link rel="stylesheet" href="~/css/theme/font-awesome-pro.css" />
+    <link rel="stylesheet" href="~/css/theme/spacing.css" />
+    <link rel="stylesheet" href="~/css/theme/custom-animation.css" />
+    <link rel="stylesheet" href="~/css/theme/main.css" asp-append-version="true" />
+</head>
+
+<body>
+    <!-- pre loader area start -->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_one"></div>
+            </div>
+        </div>
+    </div>
+    <!-- pre loader area end -->
+    <!-- tp-offcanvus-area-start -->
+    <div class="tpoffcanvas-are">
+        <div class="tpoffcanvas">
+            <div class="tpoffcanvas__close-btn">
+                <button class="close-btn"><i class="fal fa-times"></i></button>
+            </div>
+            <div class="tpoffcanvas__logo">
+                <a href="javascript:void(0);" onclick="location.href='/';">
+                    <img src="~/img/logo/wis-bulletin-white-nobg.png" alt="" />
+                </a>
+            </div>
+            <div class="tpoffcanvas__title">
+                <p>
+                    @Constants.System.App.LongSlogan
+                </p>
+            </div>
+            <div class="tp-main-menu-mobile d-xl-none"></div>
+            <div class="tpoffcanvas__contact-info">
+                <div class="tpoffcanvas__contact-title">
+                    <h5>Contact us</h5>
+                </div>
+                <ul>
+                    <li>
+                        <i class="fa-light fa-location-dot"></i>
+                        <a href="http://www.google.com/maps/%4023.8223586%2c90.html" target="_blank">
+                            Broadway St WisConsin Dells,
+                            USA, WI 12099
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:solaredge@gmail.com">adbulletinwisd@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fal fa-phone-alt"></i>
+                        <a href="tel:+99999999999">+1 999 999 999</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tpoffcanvas__input">
+                <div class="tpoffcanvas__input-title">
+                    <h4>Get UPdate</h4>
+                </div>
+                <form action="~/">
+                    <div class="p-relative">
+                        <input type="text" placeholder="Enter email">
+                        <button>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="tpoffcanvas__social">
+                <div class="social-icon">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-overlay"></div>
+    <!-- tp-offcanvus-area-end -->
+
+    <header class="tp-header-height">
+        <!-- header area start -->
+        <nav id="header-sticky" class="tp-header-area tp-header-inner-style">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-6">
+                        <div class="tp-header-logo">
+                            <a href="javascript:void(0);" onclick="location.href='/';">
+                                <img src="~/img/logo/WIS-BULLETIN-nobg.png" alt="" width="180" height="65">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 d-none d-xl-block">
+                        <div class="tp-header-menu">
+                            <nav class="tp-main-menu-content">
+                                <ul>
+                                    <li class="has-dropdown">
+                                        <a href="javascript:void(0);" onclick="location.href='/';">Home</a>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="#">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-6">
+                        <div class="tp-header-right d-flex align-items-center justify-content-end">
+                            @{
+                                var result = Engine.FindView(ViewContext, "_LoginPartial", isMainPage: false);
+                            }
+                            @if (result.Success)
+                            {
+                                await Html.RenderPartialAsync("_LoginPartial");
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException("The default Identity UI layout requires a partial view '_LoginPartial' " +
+                                "usually located at '/Pages/_LoginPartial' or at '/Views/Shared/_LoginPartial' to work. Based on your configuration " +
+                                $"we have looked at it in the following locations: {System.Environment.NewLine}{string.Join(System.Environment.NewLine, result.SearchedLocations)}.");
+                            }
+                            <div class="tp-header-btn d-none d-xl-block">
+                                <a class="tp-btn-theme" href="javascript:void(0);" onclick="location.href='/';">
+                                    <span>
+                                        Search Now <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="tp-header-bar d-xl-none">
+                                <button class="tp-menu-bar"><i class="fa-sharp fa-regular fa-bars-staggered"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- header area end -->
+    </header>
+
+    <main>
+        <!-- error area start -->
+        <div class="tp-error-area tp-error-border fix p-relative">
+            <div class="tp-error-big-text-2">
+                <span>@Constants.System.App.Title</span>
+            </div>
+            <div class="tp-error-shape-1">
+                <img src="~/img/shape/error/shape-1-1.png" alt="">
+            </div>
+            <div class="tp-error-shape-2 d-none d-md-block">
+                <img src="~/img/shape/error/shape-1-2.png" alt="">
+            </div>
+            <div class="tp-error-shape-3 d-none d-md-block">
+                <img src="~/img/shape/error/shape-1-3.png" alt="">
+            </div>
+            <div class="tp-error-shape-4 d-none d-md-block">
+                <img src="~/img/shape/error/shape-1-4.png" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="tp-error-content p-relative text-center">
+                            <div class="tp-error-number-box p-relative">
+                                @RenderBody()
+                            </div>
+                            <h5 class="tp-error-title">Something going wrong</h5>
+                            <div class="tp-error-button-box d-flex align-items-center justify-content-center">
+                                <a class="tp-btn-theme" href="listing-ads.html">
+                                    <span>
+                                        Post Your Ad <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                                    </span>
+                                </a>
+                                <div class="tp-error-social">
+                                    <span>Follow Us.</span>
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-behance"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- error area end -->
+    </main>
+
+    <!-- JS here -->
+    <script src="~/js/vendor/jquery.js"></script>
+    <script src="~/js/bootstrap-bundle.js"></script>
+    <script src="~/js/swiper-bundle.js"></script>
+    <script src="~/js/slick.js"></script>
+    <script src="~/js/magnific-popup.js"></script>
+    <script src="~/js/nice-select.js"></script>
+    <script src="~/js/purecounter.js"></script>
+    <script src="~/js/countdown.js"></script>
+    <script src="~/js/wow.js"></script>
+    <script src="~/js/isotope-pkgd.js"></script>
+    <script src="~/js/imagesloaded-pkgd.js"></script>
+    <script src="~/js/ajax-form.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    <script src="~/Identity/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        var windowOn = $(window);
+        ////////////////////////////////////////////////////
+        // 01. PreLoader Js
+        windowOn.on('load', function () {
+            $("#loading").fadeOut(500);
+            $('body').css('overflow-y', 'scroll');
+        });
+    </script>
+</body>
+</html>

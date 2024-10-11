@@ -1,4 +1,6 @@
-﻿using AdBulletin.Infrastructure.CrossCutting.AppSettings.Services;
+﻿#nullable disable
+
+using AdBulletin.Infrastructure.CrossCutting.AppSettings.Services;
 
 namespace AdBulletin.Infrastructure.CrossCutting.AppSettings;
 

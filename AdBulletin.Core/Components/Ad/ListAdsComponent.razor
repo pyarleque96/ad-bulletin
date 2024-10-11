@@ -1,0 +1,325 @@
+﻿@inject AdService AdService;
+
+
+<div class="tp-list-search-box mb-40">
+    <div class="row align-items-end">
+        <div class="col-xl-6 col-md-6 col-sm-6">
+            <div class="tp-list-text">
+                <span><i>@ads.Pagination.TotalCount </i> Search Results</span>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-6">
+            <div class="tp-list-tab-box">
+                <ul class="nav nav-tab justify-content-start  justify-content-sm-end" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="grid-tab" data-bs-toggle="tab" data-bs-target="#grid" type="button" role="tab" aria-controls="grid" aria-selected="true">
+                            <span>
+                                <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                        xmlns="../../../www.w3.org/2000/svg.html">
+                                    <path d="M12.6875 0.625C13.3984 0.625 14 1.22656 14 1.9375V11.5625C14 12.3008 13.3984 12.875 12.6875 12.875H1.3125C0.574219 12.875 0 12.3008 0 11.5625V1.9375C0 1.22656 0.574219 0.625 1.3125 0.625H12.6875ZM5.38672 1.71875V4.34375H8.58594V1.71875H5.38672ZM5.38672 5.4375V8.0625H8.58594V5.4375H5.38672ZM4.29297 11.7812V9.15625H1.09375V11.4531C1.09375 11.6445 1.23047 11.7812 1.42188 11.7812H4.29297ZM4.29297 8.0625V5.4375H1.09375V8.0625H4.29297ZM4.29297 4.34375V1.71875H1.42188C1.23047 1.71875 1.09375 1.88281 1.09375 2.04688V4.34375H4.29297ZM8.58594 11.7812V9.15625H5.38672V11.7812H8.58594ZM12.9062 11.7812V9.15625H9.67969V11.7812H12.9062ZM12.9062 8.0625V5.4375H9.67969V8.0625H12.9062ZM12.9062 4.34375V1.71875H9.67969V4.34375H12.9062Z"
+                                            fill="currentcolor" />
+                                </svg>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="false">
+                            <span>
+                                <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
+                                        xmlns="../../../www.w3.org/2000/svg.html">
+                                    <path d="M2.1875 0.0625C2.40625 0.0625 2.625 0.28125 2.625 0.5V2.25C2.625 2.49609 2.40625 2.6875 2.1875 2.6875H0.4375C0.191406 2.6875 0 2.49609 0 2.25V0.5C0 0.28125 0.191406 0.0625 0.4375 0.0625H2.1875ZM2.1875 4.4375C2.40625 4.4375 2.625 4.65625 2.625 4.875V6.625C2.625 6.87109 2.40625 7.0625 2.1875 7.0625H0.4375C0.191406 7.0625 0 6.87109 0 6.625V4.875C0 4.65625 0.191406 4.4375 0.4375 4.4375H2.1875ZM2.1875 8.8125C2.40625 8.8125 2.625 9.03125 2.625 9.25V11C2.625 11.2461 2.40625 11.4375 2.1875 11.4375H0.4375C0.191406 11.4375 0 11.2461 0 11V9.25C0 9.03125 0.191406 8.8125 0.4375 8.8125H2.1875ZM13.5625 5.09375C13.7812 5.09375 14 5.3125 14 5.53125V5.96875C14 6.21484 13.7812 6.40625 13.5625 6.40625H4.8125C4.56641 6.40625 4.375 6.21484 4.375 5.96875V5.53125C4.375 5.3125 4.56641 5.09375 4.8125 5.09375H13.5625ZM13.5625 9.46875C13.7812 9.46875 14 9.6875 14 9.90625V10.3438C14 10.5898 13.7812 10.7812 13.5625 10.7812H4.8125C4.56641 10.7812 4.375 10.5898 4.375 10.3438V9.90625C4.375 9.6875 4.56641 9.46875 4.8125 9.46875H13.5625ZM13.5625 0.71875C13.7812 0.71875 14 0.9375 14 1.15625V1.59375C14 1.83984 13.7812 2.03125 13.5625 2.03125H4.8125C4.56641 2.03125 4.375 1.83984 4.375 1.59375V1.15625C4.375 0.9375 4.56641 0.71875 4.8125 0.71875H13.5625Z"
+                                            fill="currentcolor" />
+                                </svg>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ads.Result != null && ads.Result.Any())
+{
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="tp-list-tab-content">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                        <div class="row gx-15">
+                            @foreach (var item in ads.Result)
+                            {
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-15">
+                                    <div class="tp-fea-ads-item @(item.IsPremium ? "item-premium" : (item.TotalViews >= Constants.Metrics.MIN_VIEWS_FOR_TREND && item.TotalReviews >= Constants.Metrics.MIN_REVIEWS_FOR_TREND) ? "item-trend" : item.OfferPrice.HasValue ? "item-featured" : "") @(item.IsPremium && item.IsPremiumBackgroundDisable ? "disabled-premium-background" : "")">
+                                        <div class="tp-fea-ads-thumb-box p-relative">
+                                            <div class="tp-fea-ads-thumb">
+                                                <img src="@item.Thumbnail" alt="">
+                                            </div>
+                                            <div class="tp-fea-ads-tag">
+                                                <span>
+                                                    @if (item.IsPremium)
+                                                    {
+                                                        @("MEMBER")
+                                                        if (item.TotalViews >= Constants.Metrics.MIN_VIEWS_FOR_TREND_PREMIUM && item.TotalReviews >= Constants.Metrics.MIN_REVIEWS_FOR_TREND_PREMIUM)
+                                                        {
+                                                            <i class="fa-solid fa-fire-flame-curved ml-5 color-orange"></i>
+                                                        }
+                                                        <i class="fa-solid fa-crown ml-5 color-gold"></i>
+                                                    }
+                                                    else if (item.TotalViews >= Constants.Metrics.MIN_VIEWS_FOR_TREND && item.TotalReviews >= Constants.Metrics.MIN_REVIEWS_FOR_TREND)
+                                                    {
+                                                        @("TREND")
+                                                        if (item.OfferPrice.HasValue)
+                                                        {
+                                                            <i class="fa-solid fa-tag ml-5"></i>
+                                                        }
+                                                        <i class="fa-solid fa-fire-flame-curved ml-5"></i>
+                                                    }
+                                                    else if (item.OfferPrice.HasValue)
+                                                    {
+                                                        @("ON SALE") <i class="fa-solid fa-tag ml-5"></i>
+                                                    }
+                                                    else if (item.IsPremium)
+                                                    {
+                                                        @("MEMBER")
+                                                    }
+                                                </span>
+                                            </div>
+                                            @if (!String.IsNullOrEmpty(item.Icon))
+                                            {
+                                                <div class="tp-fea-ads-2-icon-2">
+                                                    <AdBulletinIconComponent IconName=@item.Icon />
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="tp-fea-ads-2-content">
+                                            <div class="tp-fea-ads-2-meta d-flex align-items-center justify-content-between">
+                                                <span>
+                                                    <i class="fal fa-map-marker-alt mr-10"></i>
+                                                    @item.CityLocation
+                                                </span>
+                                                <span>@GetDaysAgo(item.CreatedAt)</span>
+                                            </div>
+                                            <h4 class="tp-fea-ads-2-title">
+                                                <a onclick="@(() => NavigationManager.NavigateTo($"ad/{item.Slug}", true))" role="button">
+                                                    @item.Name
+                                                </a>
+                                            </h4>
+                                            <div class="tp-fea-ads-2-price-box d-flex align-items-center justify-content-between">
+                                                <div class="tp-fea-ads-2-price">
+                                                    @if (!item.Price.HasValue && !item.OfferPrice.HasValue)
+                                                    {
+                                                        <span>See</span>
+                                                    }
+                                                    else if (item.OfferPrice.HasValue && item.Price.HasValue)
+                                                    {
+                                                        <span>$@item.OfferPrice</span>
+                                                        <span><del>$@item.Price</del></span>
+                                                    }
+                                                    else if (!item.OfferPrice.HasValue && item.Price.HasValue)
+                                                    {
+                                                        <span>$@item.Price</span>
+                                                    }
+                                                </div>
+                                                <div class="tp-fea-ads-2-price-icon">
+                                                    <a onclick="@(() => NavigationManager.NavigateTo("/", true))" role="button"><i class="fa-light fa-bookmark"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+                        <div class="row gx-15">
+                            @foreach (var item in ads.Result)
+                            {
+                                <div class="col-12 mb-15">
+                                    <div class="tp-fea-ads-item tp-fea-ads-item-style-2 @(item.IsPremium ? "item-premium" : (item.TotalViews >= Constants.Metrics.MIN_VIEWS_FOR_TREND && item.TotalReviews >= Constants.Metrics.MIN_REVIEWS_FOR_TREND) ? "item-trend" : item.OfferPrice.HasValue ? "item-featured" : "") disabled-premium-background">
+                                        <div class="row">
+                                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                                <div class="tp-fea-ads-thumb-box p-relative">
+                                                    <div class="tp-fea-ads-thumb">
+                                                        <img src="@item.Thumbnail" alt="">
+                                                    </div>
+                                                    <div class="tp-fea-ads-tag">
+                                                        <span>
+                                                            @if (item.IsPremium)
+                                                            {
+                                                                @("MEMBER")
+                                                                if (item.TotalViews >= Constants.Metrics.MIN_VIEWS_FOR_TREND_PREMIUM && item.TotalReviews >= Constants.Metrics.MIN_REVIEWS_FOR_TREND_PREMIUM)
+                                                                {
+                                                                    <i class="fa-solid fa-fire-flame-curved ml-5 color-orange"></i>
+                                                                }
+                                                                <i class="fa-solid fa-crown ml-5 color-gold"></i>
+                                                            }
+                                                            else if (item.TotalViews >= Constants.Metrics.MIN_VIEWS_FOR_TREND && item.TotalReviews >= Constants.Metrics.MIN_REVIEWS_FOR_TREND)
+                                                            {
+                                                                @("TREND")
+                                                                if (item.OfferPrice.HasValue)
+                                                                {
+                                                                    <i class="fa-solid fa-tag ml-5"></i>
+                                                                }
+                                                                <i class="fa-solid fa-fire-flame-curved ml-5"></i>
+                                                            }
+                                                            else if (item.OfferPrice.HasValue)
+                                                            {
+                                                                @("ON SALE") <i class="fa-solid fa-tag ml-5"></i>
+                                                            }
+                                                            else if (item.IsPremium)
+                                                            {
+                                                                @("MEMBER")
+                                                            }
+                                                        </span>
+                                                    </div>
+                                                    @if (!String.IsNullOrEmpty(item.Icon))
+                                                    {
+                                                        <div class="tp-fea-ads-2-icon-2">
+                                                            <AdBulletinIconComponent IconName=@item.Icon />
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                                <div class="tp-fea-ads-2-content">
+                                                    <div class="tp-fea-ads-2-meta">
+                                                        <span>
+                                                            <i class="fal fa-map-marker-alt mr-10"></i>
+                                                            @item.CityLocation
+                                                        </span>
+                                                        <span>@GetDaysAgo(item.CreatedAt)</span>
+                                                    </div>
+                                                    <h4 class="tp-fea-ads-2-title mb-20">
+                                                        <a onclick="@(() => NavigationManager.NavigateTo($"ad/{item.Slug}", true))" role="button">
+                                                            @item.Name
+                                                        </a>
+                                                    </h4>
+                                                    <div class="tp-fea-ads-text">
+                                                        <p>
+                                                            @((MarkupString)item.BriefDescription)
+                                                        </p>
+                                                    </div>
+                                                    <div class="tp-fea-ads-2-price-box d-flex align-items-center justify-content-between">
+                                                        <div class="tp-fea-ads-2-price">
+                                                            @if (!item.Price.HasValue && !item.OfferPrice.HasValue)
+                                                            {
+                                                                <span>See</span>
+                                                            }
+                                                            else if (item.OfferPrice.HasValue && item.Price.HasValue)
+                                                            {
+                                                                <span>$@item.OfferPrice</span>
+                                                                <span><del>$@item.Price</del></span>
+                                                            }
+                                                            else if (!item.OfferPrice.HasValue && item.Price.HasValue)
+                                                            {
+                                                                <span>$@item.Price</span>
+                                                            }
+                                                        </div>
+                                                        <div class="tp-fea-ads-2-price-icon">
+                                                            <a onclick="@(() => NavigationManager.NavigateTo("/", true))" role="button"><i class="fa-light fa-bookmark"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                            
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <AdBulletinPaginationComponent CurrentPage="pageIndex" TotalPages="ads.Pagination.TotalPages" OnPageChanged="OnPageChanged" />
+}
+
+
+@code {
+    [Parameter]
+    public Guid? AdCategoryId { get; set; }
+
+    private BaseResult<IEnumerable<AdDto>> ads { get; set; } = new();
+    private int pageSize = 20;
+    private int pageIndex = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadingService.OnChange += async () => await InvokeAsync(StateHasChanged);
+        LoadingService.Show();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadData();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            ads = await AdService.ListAsync(new ListAdRequest
+                {
+                    Parameters = new ListAdParameter
+                    {
+                        AdCategoryId = AdCategoryId,
+                        Pagination = new BasePaginationParameter
+                        {
+                            PageIndex = pageIndex,
+                            PageSize = pageSize
+                        }
+                    }
+                });
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            await JsRuntime.InvokeVoidAsync("console.log", $"ListAdsComponent => LoadData() Exception: -- {e.Message} - {e.StackTrace}");
+        }
+        finally
+        {
+            await LoadingService.HideLoadingWithJsAsync(JsRuntime);
+        }
+    }
+
+    private async Task OnPageChanged(int newPage)
+    {
+        pageIndex = newPage;
+        await LoadData();
+    }
+
+    public string GetDaysAgo(DateTime creationDate)
+    {
+        // Get actual date
+        DateTime currentDate = DateTime.Now;
+
+        // Calculate days
+        TimeSpan timeDifference = currentDate - creationDate;
+
+        int daysAgo = (int)timeDifference.TotalDays;
+
+        // Formatting
+        if (daysAgo == 0)
+        {
+            return "Today";
+        }
+        else if (daysAgo == 1)
+        {
+            return "1 day ago";
+        }
+        else
+        {
+            return $"{daysAgo} days ago";
+        }
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from the event to avoid memory leaks
+        LoadingService.OnChange -= async () => await InvokeAsync(StateHasChanged);
+    }
+}

@@ -7,6 +7,17 @@
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.JSInterop
 @using AdBulletin.Core
+@using AdBulletin.Core.Components
+@using AdBulletin.Core.Components.Shared
+@using AdBulletin.Core.Components.Ad
+@using AdBulletin.Core.Components.AdCategory
+@using AdBulletin.Core.Icons
+@using AdBulletin.Core.Services
 @using AdBulletin.Core.Shared
 @using AdBulletin.Common.Constants
-@inject IJSRuntime JS
+@using AdBulletin.Infrastructure.Transport
+
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
+@inject LoadingService LoadingService
+@inject LayoutService LayoutService

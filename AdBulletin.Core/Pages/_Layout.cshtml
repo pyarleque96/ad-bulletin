@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="~/css/blazor.css" asp-append-version="true" />
 
     <link href="AdBulletin.Core.styles.css" rel="stylesheet" />
-    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <component type="typeof(HeadOutlet)" render-mode="Server" />
 </head>
 <body>
     <!-- pre loader area start -->
@@ -57,7 +57,7 @@
                 <button class="close-btn"><i class="fal fa-times"></i></button>
             </div>
             <div class="tpoffcanvas__logo">
-                <a href="~/">
+                <a href="javascript:void(0);" onclick="location.href='/';">
                     <img src="~/img/logo/wis-bulletin-white-nobg.png" alt="" />
                 </a>
             </div>

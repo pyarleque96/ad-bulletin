@@ -3,8 +3,9 @@
 #nullable disable
 
 using AdBulletin.Common.Constants;
+using AdBulletin.Core.Services;
 using AdBulletin.Domain.Services.Email;
-using AddBulletin.Domain.Data.Entities.Identity;
+using AdBulletin.Domain.Data.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,13 +24,15 @@ namespace AdBulletin.Core.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailService _emailService;
+        private readonly IAuthService _authService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailService emailService)
+            IEmailService emailService,
+            IAuthService authService)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -37,6 +40,7 @@ namespace AdBulletin.Core.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailService = emailService;
+            _authService = authService;
         }
 
         /// <summary>
@@ -114,6 +118,8 @@ namespace AdBulletin.Core.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, Constants.Roles.GENERAL);
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -142,11 +148,21 @@ namespace AdBulletin.Core.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl });
                     }
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
+
+                        var token = await _authService.GetJwtTokenFromApi(Input.Email, Input.Password);
+                        var cookieOptions = new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true, // Set to true for HTTPS
+                        };
+
+                        Response.Cookies.Append(Constants.System.Tokens.JWT_AUTH_TOKEN, token, cookieOptions);
+
                         return LocalRedirect(returnUrl);
                     }
                 }

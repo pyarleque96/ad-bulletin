@@ -1,4 +1,6 @@
-﻿namespace AdBulletin.Infrastructure.CrossCutting.AppSettings.Services;
+﻿#nullable disable
+
+namespace AdBulletin.Infrastructure.CrossCutting.AppSettings.Services;
 
 public class EmailServiceSetting
 {

@@ -1,0 +1,62 @@
+﻿@page "/ad/{AdSlug}"
+
+<PageTitle>Detail</PageTitle>
+
+<!-- breadcrumb area start -->
+<div class="breadcrumb__area black-bg breadcrumb__height breadcrumb__border">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__content text-center z-index">
+                    <div class="breadcrumb__list">
+                        <span><a onclick="@(() => NavigationManager.NavigateTo("/", true))" role="button">Home</a></span>
+                        <span class="dvdr"><i class="fa-solid fa-angle-right"></i></span>
+                        <span>Search Results</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area end -->
+
+@code {
+    [Parameter]
+    public string AdSlug { get; set; }
+
+    private AdDto Ad { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadingService.OnChange += async () => await InvokeAsync(StateHasChanged);
+        LayoutService.SetHeaderProperties("tp-header-ptb tp-header-style-2", isHeaderTransparent: true); // Home header class
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadData();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        LoadingService.Show();
+
+        try
+        {
+            StateHasChanged();
+        }
+        finally
+        {
+            await LoadingService.HideLoadingWithJsAsync(JsRuntime);
+        }
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from the event to avoid memory leaks
+        LoadingService.OnChange -= async () => await InvokeAsync(StateHasChanged);
+    }
+}

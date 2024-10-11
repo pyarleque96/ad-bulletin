@@ -17,12 +17,14 @@
         public class Roles
         {
             public const string ADMIN = "ADM";
-            public const string ADVERTISER = "ADV";
+            public const string SUPERVISOR = "SUP";
+            public const string ADVERTISER = "ADS";
             public const string GENERAL = "GRL";
 
             public static IList<string> LIST_ROLES = new List<string>
             {
                 ADMIN,
+                SUPERVISOR,
                 ADVERTISER,
                 GENERAL,
             };
@@ -65,6 +67,22 @@
                     public string LOGO_BRAND_WHITE_2_NOBG = "https://i.ibb.co/Xkj8V3H/WIS-BULLETIN-WHITE-2-nobg.png";
                 }
             }
+
+            public class Tokens
+            {
+                public const string USER_SESSION = "us_";
+                public const string JWT_AUTH_TOKEN = $"{USER_SESSION}jt";
+            }
+        }
+
+        public class Metrics
+        {
+            public const int MIN_VIEWS_FOR_TREND = 1000;
+            public const int MIN_REVIEWS_FOR_TREND = 15;
+            public const int MIN_VIEWS_FOR_TREND_PREMIUM = 100;
+            public const int MIN_REVIEWS_FOR_TREND_PREMIUM = 5;
+            public const int MIN_REPORTS_FOR_SHADOW_BAN = 15;
+            public const int MIN_REPORTS_FOR_BAN = 25;
         }
     }
 }
